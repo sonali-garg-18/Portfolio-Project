@@ -149,7 +149,7 @@ SET SoldAsVacant = case when SoldAsVacant='Y' then 'Yes'
 	   end
 From portfolio_project.dbo.nashvillehousing
 
---remove duplicates
+--removing duplicates
 with RowNumCTE as(
 select *,
       ROW_NUMBER() over (
@@ -163,7 +163,7 @@ from RowNumCTE
 where row_num >1
 order by PropertyAddress
 
---to delete duplicate rows in place of select type delete and the run
+--to delete duplicate rows in place of select type delete
 -- again type select and run and see the results
 with RowNumCTE as(
 select *,
